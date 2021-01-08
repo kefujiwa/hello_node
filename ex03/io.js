@@ -6,7 +6,7 @@
 //   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2021/01/08 04:05:56 by kefujiwa          #+#    #+#             //
-//   Updated: 2021/01/08 23:43:22 by kefujiwa         ###   ########.fr       //
+//   Updated: 2021/01/09 03:48:12 by kefujiwa         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -23,6 +23,6 @@ if (process.argv.length == 3) {
 		}
 		console.log(total);
 	} catch (error) {
-		console.log(error.message);
+		console.error(error.message);
 	}
 }
