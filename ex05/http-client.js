@@ -6,7 +6,7 @@
 //   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2021/01/09 00:47:48 by kefujiwa          #+#    #+#             //
-//   Updated: 2021/01/09 00:57:40 by kefujiwa         ###   ########.fr       //
+//   Updated: 2021/01/09 01:09:10 by kefujiwa         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -18,10 +18,7 @@ if (process.argv.length == 3)
 		http.get(process.argv[2], function (res) {
 			let line = '';
 			res.on('data', function (chunk) {
-				line += chunk;
-			});
-			res.on('end', function () {
-				console.log(line);
+				console.log(chunk.toString());
 			});
 			res.on('error', function (err) {
 				console.error(err.message);
