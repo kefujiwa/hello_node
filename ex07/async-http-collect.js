@@ -6,7 +6,7 @@
 //   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2021/01/09 01:11:48 by kefujiwa          #+#    #+#             //
-//   Updated: 2021/01/09 02:51:00 by kefujiwa         ###   ########.fr       //
+//   Updated: 2021/01/10 21:29:33 by kefujiwa         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -37,22 +37,18 @@ async function asyncCall() {
 function request(url) {
 	return new Promise(function(resolve, reject) {
 		let line = '';
-		try {
-			http.get(url, function(res) {
-				res.on('data', function(chunk) {
-					line += chunk;
-				});
-				res.on('end', function() {
-					resolve(line);
-				});
-				res.on('error', function(err) {
-					reject(err);
-				});
-			}).on('error', function(err) {
+		http.get(url, function(res) {
+			res.on('data', function(chunk) {
+				line += chunk;
+			});
+			res.on('end', function() {
+				resolve(line);
+			});
+			res.on('error', function(err) {
 				reject(err);
 			});
-		} catch (error) {
+		}).on('error', function(err) {
 			reject(err);
-		}
+		});
 	});
 }
